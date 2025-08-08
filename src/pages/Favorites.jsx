@@ -76,7 +76,7 @@ const Favorites = () => {
 
 
         <div className="flex gap-1 flex-wrap justify-center ">{currentpageData.map((dat, index) => {
-            return <div key={index} className="relative"><div className="flex flex-col gap-1 p-1 relative" onClick={() => handlerecipe(dat)}>
+            return <div key={index} className="relative"><div className="flex flex-col gap-1 p-1 relative " onClick={() => handlerecipe(dat)}>
                 <img src={dat.strMealThumb} width={200} className="rounded-2xl" />
                 <div className="text-xs text-gray-400 font-semibold max-w-48">
                     <p className="">Meal: {dat.strMeal}</p>

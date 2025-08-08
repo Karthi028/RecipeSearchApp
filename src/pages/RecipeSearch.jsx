@@ -64,8 +64,8 @@ const RecipeSearch = () => {
     return <div className="mt-10">
         <h1 className="text-center text-xl font-extrabold p-1 italic text-lime-600">Recipe Results!!!</h1>
 
-        <div className="flex gap-1 flex-wrap justify-center ">{currentpageData.map((dat, index) => {
-            return <div key={index} className="flex flex-col gap-1 p-1 relative" onClick={() => handlerecipe(dat)}>
+        <div className="flex gap-1 flex-wrap justify-center">{currentpageData.map((dat, index) => {
+            return <div key={index} className="flex flex-col gap-1 p-1 relative transition-transform hover:scale-105 " onClick={() => handlerecipe(dat)}>
                 <img src={dat.strMealThumb} width={200} className="rounded-2xl" />
                 <div className="text-xs text-gray-400 font-semibold max-w-48">
                     <p className="">Meal: {dat.strMeal}</p>
