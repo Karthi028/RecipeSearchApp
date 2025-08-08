@@ -1,12 +1,11 @@
-import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useLoaderData, useNavigate, useParams } from "react-router"
-import { setrecipeID } from "../../redux/features/searchSlice";
+import { setPageNo, setrecipeID } from "../../redux/features/searchSlice";
 
 const RecipeSearch = () => {
-    const [Page, setPage] = useState(1);
+
     const dispatch = useDispatch();
-    const { recipeID } = useSelector((state) => state.search.formData);
+    const { recipeID,PageNo} = useSelector((state) => state.search.formData);
     const recivedData = useLoaderData()
     const storedData = JSON.parse(localStorage.getItem('recipes'));
     const response = storedData || recivedData;
@@ -21,8 +20,8 @@ const RecipeSearch = () => {
 
     const perPage = 10;
     const Totalpages = Math.ceil(data.length / perPage);
-    const startIndex = (Page * perPage) - perPage;
-    const lastIndex = (Page * perPage);
+    const startIndex = (page * perPage) - perPage;
+    const lastIndex = (page * perPage);
     const currentpageData = data.slice(startIndex, lastIndex);
 
     const handlerecipe = (dat) => {
@@ -39,23 +38,23 @@ const RecipeSearch = () => {
     }
 
     const settingpageno = () => {
-        setPage(page);
+        dispatch(setPageNo(page));
     };
 
     const handlePrevious = () => {
 
-        if (Page !== 1) {
-            navigate(`/recipeSearch/${Page - 1}`)
-            setPage(Page - 1)
+        if (page !== 1 && page>1) {
+            navigate(`/recipeSearch/${+page - 1}`)
+            dispatch(setPageNo(+page - 1));
         }
     }
 
     const handleNext = () => {
 
 
-        if (Page < Totalpages) {
-            navigate(`/recipeSearch/${Page + 1}`)
-            setPage(Page + 1)
+        if (page < Totalpages) {
+            navigate(`/recipeSearch/${+page + 1}`)
+            dispatch(setPageNo(+page + 1));
         }
 
     }
@@ -75,7 +74,7 @@ const RecipeSearch = () => {
             </div>
         })}</div>
         <div className="flex justify-center mt-2 gap-1">
-            <button className="p-0.5 pl-3 pr-3 rounded-full border  hover:bg-amber-200 hover:text-white font-extrabold" onClick={handlePrevious}>-</button> <button className="p-1 pl-3 pr-3 rounded-full border  bg-amber-300 text-white" >{Page}</button> <button className="p-0.5 pl-2.5 pr-2.5 rounded-full border  hover:bg-amber-200 hover:text-white font-extrabold" onClick={handleNext}>+</button>
+            <button className="p-0.5 pl-3 pr-3 rounded-full border  hover:bg-amber-200 hover:text-white font-extrabold" onClick={handlePrevious}>-</button> <button className="p-1 pl-3 pr-3 rounded-full border  bg-amber-300 text-white" >{PageNo}</button> <button className="p-0.5 pl-2.5 pr-2.5 rounded-full border  hover:bg-amber-200 hover:text-white font-extrabold" onClick={handleNext}>+</button>
         </div>
     </div>
 }

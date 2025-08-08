@@ -6,7 +6,7 @@ function Toprecipebar() {
 
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const { recipe, radio, option } = useSelector((state) => state.search.formData);
+  const { recipe, radio, option,PageNo } = useSelector((state) => state.search.formData);
 
   const searchradio = (event) => {
     if (radio === event.target.value) {
@@ -58,7 +58,7 @@ function Toprecipebar() {
 
   const handleform = (event) => {
     event.preventDefault()
-    navigate('/recipeSearch/1');
+    navigate(`/recipeSearch/1`);
 
 
   };

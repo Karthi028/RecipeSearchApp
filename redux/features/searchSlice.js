@@ -7,6 +7,7 @@ const initialState = {
         radio : '',
         recipeID :'',
         category: '',
+        PageNo:'1',
     }
 };
 
@@ -37,9 +38,12 @@ export const searchSlice = createSlice({
         },
         setcategory:(state,action)=>{
             state.formData.category = action.payload;
+        },
+        setPageNo:(state,action)=>{
+            state.formData.PageNo = action.payload;
         }
     }
 });
 
-export const { setrecipes,setradio,setoptions,setrecipeID,clearRadio,clearForm,setcategory} = searchSlice.actions;
+export const { setrecipes,setradio,setoptions,setrecipeID,clearRadio,clearForm,setcategory,setPageNo} = searchSlice.actions;
 export default searchSlice.reducer;
