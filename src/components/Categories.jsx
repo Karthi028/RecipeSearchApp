@@ -9,7 +9,7 @@ const Categories = () => {
     const response = useLoaderData();
     const recipes = response.categories || [];    
     if(recipes.length === 0){
-        return <div className="text-xl text-center font-semibold text-orange-500 mt-20">Unable to <span className="text-red-500 font-bold">load</span> the Recipes Come back Later....</div>
+        return <div className="text-xl text-center font-semibold text-orange-500 mt-20">Lets <span className="text-red-500 font-bold">Cook</span>Some Yummy Recipes.....</div>
     }
 
     const modifieddata = recipes.map((recip) => {
