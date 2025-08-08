@@ -1,4 +1,4 @@
-import { Link, useLoaderData } from "react-router"
+import { useLoaderData } from "react-router"
 
 const DetailerRecipe = () => {
 
@@ -85,13 +85,12 @@ const DetailerRecipe = () => {
                 </ul>
                 {data.strYoutube !== ''? <p className=" text-gray-400 italic text-xs font-normal mt-1">VedioLink:
                      <a className="text-blue-400 hover:underline" href={data.strYoutube}>{data.strYoutube}</a></p>:''}
-                
                 </div>
                 <h1 className="text-lg hidden lg:block font-bold text-gray-500">Instruction<p className=" text-gray-400 italic text-xs font-normal">{data.strInstructions}</p></h1>
                 </div>
                 </div>
                 <h1 className="text-lg lg:hidden font-bold text-gray-500 p-4 mt-[-10px]">Instruction<p className=" text-gray-400 italic text-xs font-normal">{data.strInstructions}</p></h1>
-                <h1 onClick={()=>handlefavorite(data)} className="absolute top-4 right-8 flex items-center gap-2"><img src='/lovee.png' width={20}/><img id="filled" src='/love.png' className="absolute hidden" width={20}/><span className="text-xs text-red-500 font-semibold">Mark as Favorite</span></h1>
+                <h1 onClick={()=>handlefavorite(data)} className="absolute top-[-10px] right-8 md:top-4 md:right-8 flex items-center gap-2"><img src='/lovee.png' width={20}/><img id="filled" src='/love.png' className="absolute hidden" width={20}/><span className="text-xs text-red-500 font-semibold">Mark as Favorite</span></h1>
             </div>
         })}</div>
     </div>

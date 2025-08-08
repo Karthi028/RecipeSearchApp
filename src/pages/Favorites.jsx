@@ -11,10 +11,10 @@ const Favorites = () => {
     const navigate = useNavigate();
     const { page } = useParams();
 
-    const data = JSON.parse(localStorage.getItem("liked"));
+    const data = JSON.parse(localStorage?.getItem("liked"))?JSON.parse(localStorage.getItem("liked")):[];
 
     const perPage = 10;
-    const Totalpages = Math.ceil(data.length / perPage);
+    const Totalpages = Math.ceil(data?.length / perPage);
     const startIndex = (Page * perPage) - perPage;
     const lastIndex = (Page * perPage);
     const currentpageData = data.slice(startIndex, lastIndex);
@@ -29,8 +29,11 @@ const Favorites = () => {
     }
 
     if (!data || data.length === 0) {
-        
-        return <div><button onClick={()=>window.history.back()} className="hover:scale-110 p-4"><img src="/back.png" width={30} alt="" /></button><div className="text-xl text-center font-semibold text-orange-500 mt-20">No <span className="text-red-500 font-bold">Favorite </span>Recipes available....</div></div>
+
+        return <div><button onClick={() => window.history.back()} className="hover:scale-110 p-4">
+            <img src="/back.png" width={30} alt="" /></button>
+            <div className="text-xl text-center font-semibold text-orange-500 mt-20">No <span className="text-red-500 font-bold">Favorite </span>Recipes available....</div>
+        </div>
     }
 
     const settingpageno = () => {
@@ -84,7 +87,7 @@ const Favorites = () => {
                 <button id="filled" className="absolute top-0 left-[-5px] transition-transform hover:scale-120" onClick={() => handleremove(dat)}><img src="/love.png" width={20} alt="" /></button>
             </div>
         })}</div>
-        <button onClick={()=>window.history.back()} className="absolute top-3 hover:scale-110"><img src="/back.png" width={30} alt="" /></button>
+        <button onClick={() => window.history.back()} className="absolute top-3 hover:scale-110"><img src="/back.png" width={30} alt="" /></button>
     </div>
 }
 
