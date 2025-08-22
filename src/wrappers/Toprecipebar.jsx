@@ -96,7 +96,7 @@ function Toprecipebar() {
         localStorage.removeItem('recipes');
         navigate('/');
         }} className="absolute right-[-35px] top-[-5px] w-[9%] sm:relative p-1 ml-2 sm:w-[9%] md:w-[5%]"><img src="/home.png"  className="w-9 transition-transform hover:scale-115"/></button>
-        <button className="absolute right-20 top-31 sm:right-22 sm:top-5 hover:scale-110" onClick={()=>navigate('/favorites')}><img src="/love.png"  className="size-5 sm:size-7" alt="" /></button>
+        <button className="absolute right-20 top-31 sm:right-10 sm:top-4 hover:scale-110" onClick={()=>navigate('/favorites')}><img src="/love.png"  className="size-5 sm:size-7" alt="" /></button>
     </div>
     <Outlet />
   </div>
